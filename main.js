@@ -14,7 +14,8 @@ const mapsEmbedUrl = `https://maps.google.com/maps?q=${mapsQuery}&hl=es&z=16&out
 const whatsappUrl = (text) =>
   `https://wa.me/${CLINIC.whatsapp}?text=${encodeURIComponent(text)}`;
 
-document.getElementById("year").textContent = String(new Date().getFullYear());
+const year = document.getElementById("year");
+if (year) year.textContent = String(new Date().getFullYear());
 
 document.querySelectorAll("[data-phone-text]").forEach((el) => {
   el.textContent = CLINIC.phoneDisplay;
@@ -177,6 +178,86 @@ if (reviewsCarousel) {
   });
   window.addEventListener("resize", layout);
   layout();
+}
+
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const heroTitle = document.querySelector(".hero h1");
+const heroLede = document.querySelector(".hero .lede");
+
+if (!reduceMotion && heroTitle) {
+  const splitChars = (el) => {
+    let index = 0;
+    const walk = (node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const text = node.textContent;
+        if (!text) return;
+        const frag = document.createDocumentFragment();
+        text.split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) {
+            frag.appendChild(document.createTextNode(part));
+            return;
+          }
+          const word = document.createElement("span");
+          word.className = "reveal-word";
+          Array.from(part).forEach((ch) => {
+            const char = document.createElement("span");
+            char.className = "reveal-char";
+            char.style.setProperty("--i", String(index));
+            char.textContent = ch;
+            word.appendChild(char);
+            index += 1;
+          });
+          frag.appendChild(word);
+        });
+        node.replaceWith(frag);
+        return;
+      }
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        Array.from(node.childNodes).forEach(walk);
+      }
+    };
+    walk(el);
+    el.classList.add("reveal-text");
+  };
+
+  const splitWords = (el) => {
+    let index = 0;
+    const walk = (node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const text = node.textContent;
+        if (!text || !text.trim()) return;
+        const frag = document.createDocumentFragment();
+        text.split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) {
+            frag.appendChild(document.createTextNode(part));
+            return;
+          }
+          const word = document.createElement("span");
+          word.className = "reveal-word";
+          word.style.setProperty("--i", String(index));
+          word.textContent = part;
+          frag.appendChild(word);
+          index += 1;
+        });
+        node.replaceWith(frag);
+        return;
+      }
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        Array.from(node.childNodes).forEach(walk);
+      }
+    };
+    walk(el);
+    el.classList.add("reveal-words");
+  };
+
+  splitChars(heroTitle);
+  if (heroLede) splitWords(heroLede);
+  requestAnimationFrame(() => {
+    heroTitle.classList.add("is-in");
+    if (heroLede) heroLede.classList.add("is-in");
+  });
 }
 
 const form = document.getElementById("cita");
