@@ -350,12 +350,21 @@ a.treat-card h3 { color: var(--brand-dark); }
 .reviews {
   display: flex;
   gap: 1rem;
+  align-items: stretch;
   transition: transform .45s ease;
 }
 .reviews figure {
   margin: 0;
-  min-height: 14.2rem;
+  min-height: 15.5rem;
+  display: flex;
+  flex-direction: column;
 }
+.reviews blockquote {
+  flex: 1;
+  margin: 0 0 .8rem;
+  color: var(--ink);
+}
+.reviews figcaption { margin-top: auto; }
 .reviews-prev,
 .reviews-next {
   width: 2.45rem;
@@ -398,7 +407,6 @@ a.treat-card h3 { color: var(--brand-dark); }
   cursor: pointer;
 }
 .reviews-dots button.is-on { background: var(--cta); }
-.reviews blockquote { margin: 0 0 .8rem; color: var(--ink); }
 .reviews figcaption span { display: block; color: var(--muted); font-size: .85rem; }
 
 .about-grid {
