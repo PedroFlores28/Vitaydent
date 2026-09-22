@@ -1173,7 +1173,8 @@ footer.site-footer a { color: #e8edf6; }
   }
   .hero .kicker::before { width: 1.6rem; }
   .hero h1.hero-phrase {
-    max-width: 22rem;
+    max-width: 100%;
+    width: 100%;
     margin-bottom: 1.05rem;
     gap: .28rem;
   }
@@ -1191,17 +1192,21 @@ footer.site-footer a { color: #e8edf6; }
     padding-left: clamp(4rem, 20vw, 6rem);
   }
   .hero-phrase-smile {
-    margin-left: clamp(1.5rem, 8vw, 2.6rem);
+    align-self: center;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
   }
   .hero-phrase-script em {
-    font-size: clamp(2.7rem, 13vw, 3.7rem);
+    font-size: clamp(3.05rem, 14.6vw, 4.05rem);
   }
   .hero-phrase-q {
-    font-size: clamp(2.35rem, 11vw, 3.2rem);
+    font-size: clamp(2.65rem, 12.5vw, 3.5rem);
   }
   .hero-smile {
-    width: clamp(16.5rem, 86vw, 22rem);
-    margin-top: -1.45rem;
+    width: 100%;
+    max-width: 100%;
+    margin-top: -2rem;
   }
   .hero .lede {
     font-size: .98rem;
