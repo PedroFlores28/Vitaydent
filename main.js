@@ -224,7 +224,7 @@ if (!reduceMotion && heroTitle) {
           node.style.setProperty("--reveal-delay", "1.05s");
           return;
         }
-        if (node.tagName === "SVG" || (node.classList && node.classList.contains("hero-mark-svg"))) return;
+        if (node.tagName === "SVG") return;
         Array.from(node.childNodes).forEach(walk);
       }
     };
