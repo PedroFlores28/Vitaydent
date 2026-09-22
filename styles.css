@@ -69,18 +69,10 @@ html { overflow-x: clip; }
   margin-bottom: .55rem;
 }
 
-.topbar {
-  background: var(--brand-dark);
-  color: #fff;
-  font-size: .86rem;
-}
-.topbar-inner, .header-inner, .topbar-links, .hero-ctas, .hero-points, .contact-list {
+.header-inner, .hero-ctas, .hero-points, .contact-list {
   display: flex;
   gap: 1rem;
 }
-.topbar-inner { justify-content: space-between; align-items: center; min-height: 2.4rem; }
-.topbar p { margin: 0; color: #d9deea; }
-.topbar a { color: #fff; font-weight: 600; }
 
 .site-header {
   position: sticky;
@@ -355,8 +347,8 @@ a.treat-card h3 { color: var(--brand-dark); }
   align-items: flex-start;
   justify-content: center;
   font-family: Poppins, system-ui, sans-serif;
-  font-size: clamp(5.2rem, 12.5vw, 8.2rem);
-  font-weight: 600;
+  font-size: clamp(4.5rem, 10.4vw, 7rem);
+  font-weight: 300;
   line-height: .82;
   color: #9eb4d6;
   letter-spacing: -.06em;
@@ -396,7 +388,7 @@ a.treat-card h3 { color: var(--brand-dark); }
 .hero-phrase-soft {
   display: block;
   margin: .15rem 0 .05rem;
-  padding-left: clamp(6.4rem, 16vw, 11rem);
+  padding-left: clamp(5rem, 12vw, 8.4rem);
   font-size: clamp(1.05rem, 2vw, 1.35rem);
   font-weight: 600;
   color: #b7becb;
@@ -450,9 +442,9 @@ a.treat-card h3 { color: var(--brand-dark); }
 }
 .hero-smile {
   display: block;
-  width: clamp(17.5rem, 58vw, 27rem);
+  width: clamp(18rem, 52vw, 29rem);
   height: auto;
-  margin-top: -1.75rem;
+  margin-top: -1.9rem;
   margin-left: 0;
   color: #e8ebf1;
   overflow: visible;
@@ -1162,9 +1154,6 @@ footer.site-footer a { color: #e8edf6; }
   .header-cta { display: none; }
   .brand { font-size: 1.12rem; gap: .4rem; }
   .brand img { width: 2.25rem; height: 2.25rem; }
-  .topbar { font-size: .8rem; }
-  .topbar p { display: none; }
-  .topbar-inner { justify-content: center; }
   .hero {
     min-height: 0;
     align-items: end;
@@ -1189,7 +1178,7 @@ footer.site-footer a { color: #e8edf6; }
     gap: .28rem;
   }
   .hero-phrase-mark {
-    font-size: clamp(4rem, 20vw, 5.4rem);
+    font-size: clamp(3.5rem, 17vw, 4.7rem);
   }
   .hero-phrase-top {
     font-size: clamp(1.15rem, 5.2vw, 1.4rem);
@@ -1199,7 +1188,7 @@ footer.site-footer a { color: #e8edf6; }
   }
   .hero-phrase-soft {
     font-size: 1.02rem;
-    padding-left: clamp(5.2rem, 26vw, 7.8rem);
+    padding-left: clamp(4rem, 20vw, 6rem);
   }
   .hero-phrase-smile {
     margin-left: clamp(1.5rem, 8vw, 2.6rem);
@@ -1211,8 +1200,8 @@ footer.site-footer a { color: #e8edf6; }
     font-size: clamp(2.35rem, 11vw, 3.2rem);
   }
   .hero-smile {
-    width: clamp(15.5rem, 88vw, 20rem);
-    margin-top: -1.4rem;
+    width: clamp(16.5rem, 86vw, 22rem);
+    margin-top: -1.45rem;
   }
   .hero .lede {
     font-size: .98rem;
