@@ -214,6 +214,17 @@ if (!reduceMotion && heroTitle) {
         return;
       }
       if (node.nodeType === Node.ELEMENT_NODE) {
+        if (node.classList && node.classList.contains("hero-phrase-mark")) {
+          node.classList.add("reveal-fade-item");
+          node.style.setProperty("--reveal-delay", "0.05s");
+          return;
+        }
+        if (node.classList && node.classList.contains("hero-smile")) {
+          node.classList.add("reveal-fade-item");
+          node.style.setProperty("--reveal-delay", "1.05s");
+          return;
+        }
+        if (node.tagName === "SVG" || (node.classList && node.classList.contains("hero-mark-svg"))) return;
         Array.from(node.childNodes).forEach(walk);
       }
     };
@@ -254,9 +265,28 @@ if (!reduceMotion && heroTitle) {
 
   splitChars(heroTitle);
   if (heroLede) splitWords(heroLede);
-  requestAnimationFrame(() => {
+
+  const heroPoints = document.querySelector(".hero-points");
+  const heroNote = document.querySelector(".hero-note");
+  const heroCtas = document.querySelector(".hero-ctas");
+  [heroPoints, heroNote, heroCtas].forEach((el, i) => {
+    if (!el) return;
+    el.classList.add("reveal-fade-item");
+    el.style.setProperty("--reveal-delay", `${0.85 + i * 0.12}s`);
+  });
+
+  const playIn = () => {
     heroTitle.classList.add("is-in");
     if (heroLede) heroLede.classList.add("is-in");
+    document.querySelectorAll(".hero .reveal-fade-item").forEach((el) => {
+      el.classList.add("is-in");
+    });
+  };
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      setTimeout(playIn, 40);
+    });
   });
 }
 
