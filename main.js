@@ -1,7 +1,7 @@
 const CLINIC = {
   phoneDisplay: "900 123 456",
   phoneTel: "+34900123456",
-  whatsapp: "34600123456",
+  whatsapp: "90012345",
   address: "Avenida Zarumilla 896, San Mart\u00edn de Porres",
   addressRef: "Paradero Control",
 };
